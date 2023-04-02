@@ -19,7 +19,7 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`/videos/${type}`);
+      const res = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/videos/${type}`);
       setVideos(res.data);
     };
     fetchVideos();

@@ -164,7 +164,7 @@ const Upload = ({ setIsOpen }) => {
   //on upload
   const handleUpload = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/videos", { ...inputs, tags });
+    const res = await axios.post("https://video-app-yt-3.onrender.com/api/v1/videos", { ...inputs, tags });
     console.log(res);
     setIsOpen(false);
     res.status === 200 && navigate(`/video/${res.data._id}`);

@@ -23,7 +23,7 @@ const Recommendation = ({ tags }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await axios.get(`/videos/tags?tags=${tags}`);
+        const res = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/videos/tags?tags=${tags}`);
         setVideos(res.data);
       } catch (error) {}
     };
