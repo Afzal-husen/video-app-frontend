@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { format } from "timeago.js";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -81,7 +80,7 @@ const Card = ({ type, video }) => {
             <Title>{video.title}</Title>
             <ChannelName>{channel.name}</ChannelName>
             <Info>
-              {video.views} Views {format(video.createdAt)}
+              {video.views} Views
             </Info>
           </Text>
         </ChannelDetail>

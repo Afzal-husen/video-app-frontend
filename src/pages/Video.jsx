@@ -14,7 +14,6 @@ import {
   Recommendation,
 } from "../components/utils/allComponents.js";
 import { useDispatch, useSelector } from "react-redux";
-import { format } from "timeago.js";
 import { useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -264,7 +263,7 @@ const Video = () => {
         <Title>{currentVideo.title}</Title>
         <Details>
           <Info>
-            {currentVideo.views} views • {format(currentVideo.createdAt)}
+            {currentVideo.views} views 
           </Info>
           <Buttons>
             <Button onClick={handleLike}>

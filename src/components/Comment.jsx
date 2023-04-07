@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { format } from "timeago.js";
 import { fetchComment } from "../features/commentSlice";
 
 const Container = styled.div`
@@ -28,11 +27,7 @@ const UserName = styled.span`
   font-weight: bold;
   color: ${({ theme }) => theme.textColor};
 `;
-const Time = styled.span`
-  font-size: 12px;
-  font-weight: lighter;
-  color: ${({ theme }) => theme.softText};
-`;
+
 const CommentDescription = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.textColor};
@@ -99,7 +94,7 @@ const Comment = ({ comment }) => {
           <Image src={user.image} />
           <CommentDetail>
             <UserName>
-              {user.name} <Time>{format(comment.createdAt)}</Time>
+              {user.name}
             </UserName>
             <CommentDescription>{comment.description}</CommentDescription>
           </CommentDetail>
