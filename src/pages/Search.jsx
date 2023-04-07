@@ -18,7 +18,7 @@ const Search = () => {
 
   useEffect(() => {
     const fetchBySearch = async () => {
-      const res = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/videos/search${query.search}`);
+      const res = await axios.get(`/videos/search${query.search}`);
       setVideos(res.data);
     };
     fetchBySearch();

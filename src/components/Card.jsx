@@ -61,7 +61,7 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const res = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/user/find/${userID}`);
+        const res = await axios.get(`/user/find/${userID}`);
         setChannel(res.data);
       } catch (error) {
         console.log(error);
@@ -71,7 +71,7 @@ const Card = ({ type, video }) => {
   }, [userID]);
 
   return (
-    <Link to={currentUser ? `https://video-app-yt-3.onrender.com/api/v1/video/${video._id}` : "/signin"}>
+    <Link to={currentUser ? `/video/${video._id}` : "/signin"}>
       <Container type={type}>
         <CardImg src={video.thumbUrl} type={type} />
 

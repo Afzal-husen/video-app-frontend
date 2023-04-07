@@ -11,7 +11,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../fireBase.js";
-import { async } from "@firebase/util";
 
 //styled components
 const Container = styled.div`
@@ -158,7 +157,7 @@ const SignIn = () => {
     try {
       dispatch(loginStart());
       const result = await signInWithPopup(auth, provider);
-      const res = await axios.post("https://video-app-yt-3.onrender.com/api/v1/auth/google", {
+      const res = await axios.post("/auth/google", {
         name: result.user.displayName,
         email: result.user.email,
         image: result.user.photoURL,
@@ -173,7 +172,7 @@ const SignIn = () => {
   // userSignIn func
   const userSignIn = async () => {
     try {
-      const res = await axios.post("https://video-app-yt-3.onrender.com/api/v1/auth/signin", {
+      const res = await axios.post("/auth/signin", {
         email: email,
         password: password,
       });

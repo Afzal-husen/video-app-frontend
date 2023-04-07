@@ -51,7 +51,7 @@ const Comments = ({ setComments }) => {
 
   const handleAddComment = async () => {
     try {
-      const res = await axios.post("https://video-app-yt-3.onrender.com/api/v1/comments", {
+      const res = await axios.post("/comments", {
         videoID: currentVideo._id,
         description: description,
       });
