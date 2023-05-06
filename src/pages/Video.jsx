@@ -162,7 +162,7 @@ const Video = () => {
     const fetchData = async () => {
       try {
         dispatch(fetchStart());
-        const videoRes = await axios.get(`/videos/find/${videoId}`);
+        const videoRes = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/videos/find/${videoId}`);
         const channelRes = await axios.get(
           `/user/find/${videoRes.data.userID}`,
         );
@@ -183,7 +183,7 @@ const Video = () => {
     }
     try {
       dispatch(fetchStart());
-      await axios.put(`/user/like/${videoId}`);
+      await axios.put(`https://video-app-yt-3.onrender.com/api/v1/user/like/${videoId}`);
       dispatch(like(currentUser._id));
     } catch (error) {
       dispatch(fetchFailure());
@@ -197,7 +197,7 @@ const Video = () => {
     }
     try {
       dispatch(fetchStart());
-      await axios.put(`/user/dislike/${videoId}`);
+      await axios.put(`https://video-app-yt-3.onrender.com/api/v1/user/dislike/${videoId}`);
       dispatch(disLike(currentUser._id));
     } catch (error) {
       dispatch(fetchFailure());
@@ -218,8 +218,8 @@ const Video = () => {
       // }
       //OR
       currentUser.subscribedChannels.includes(currentVideo.userID)
-        ? await axios.put(`/user/unsub/${currentVideo.userID}`)
-        : await axios.put(`/user/sub/${currentVideo.userID}`);
+        ? await axios.put(`https://video-app-yt-3.onrender.com/api/v1/user/unsub/${currentVideo.userID}`)
+        : await axios.put(`https://video-app-yt-3.onrender.com/api/v1/user/sub/${currentVideo.userID}`);
 
       dispatch(subscription(currentVideo.userID));
     } catch (error) {
@@ -233,7 +233,7 @@ const Video = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`/comments/${videoId}`);
+        const res = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/comments/${videoId}`);
         setComments(res.data);
         dispatch(fetchComment(res.data));
       } catch (error) {
@@ -246,7 +246,7 @@ const Video = () => {
   useEffect(() => {
     const addViews = async () => {
       try {
-        await axios.put(`/videos/views/${videoId}`);
+        await axios.put(`https://video-app-yt-3.onrender.com/api/v1/videos/views/${videoId}`);
       } catch (error) {}
     };
     addViews();

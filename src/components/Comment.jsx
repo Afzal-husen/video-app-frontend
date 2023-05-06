@@ -64,7 +64,7 @@ const Comment = ({ comment }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const userRes = await axios.get(`/user/find/${comment.userID}`);
+        const userRes = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/user/find/${comment.userID}`);
         setUser(userRes.data);
       } catch (error) {
         console.log(error);
@@ -80,7 +80,7 @@ const Comment = ({ comment }) => {
     }
 
     try {
-      const res = await axios.delete(`/comments/${comment._id}`);
+      const res = await axios.delete(`https://video-app-yt-3.onrender.com/api/v1/comments/${comment._id}`);
       console.log(res.data);
     } catch (error) {
       console.log(error);
