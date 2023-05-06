@@ -60,7 +60,7 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const res = await axios.get(`/user/find/${userID}`);
+        const res = await axios.get(`https://video-app-yt-3.onrender.com/api/v1/user/find/${userID}`);
         setChannel(res.data);
       } catch (error) {
         console.log(error);
